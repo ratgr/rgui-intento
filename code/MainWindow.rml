@@ -1,0 +1,11 @@
+settings : {
+    export : 'gen',
+    import: ['RGUI/UIElements'],
+    compiler: x,
+    
+}
+
+RGUI::Window{
+    x.name : MainWindow,
+    Button 
+}
