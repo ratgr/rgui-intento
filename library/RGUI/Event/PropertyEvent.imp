@@ -1,0 +1,32 @@
+#include "Property.hpp"
+
+template <class T>
+    int PropertyEvent::add(func<void(Property<T>&)> f)
+{
+    Property<T>* prop = dynamic_cast<Property<T>*>(Parent_Property);
+    if(prop == nullptr) return -1;
+
+    functions.emplace(count, [](PropertyBase& a){
+        f(dynamic_cast<Property<T>&>(a))
+    });
+
+    count ++;
+
+    return count - 1;
+}
+
+int PropertyEvent::add(func<void(PropertyBase&)> f)
+{
+    functions.emplace(count , f);
+    count ++;
+    return count -1;
+}
+
+void PropertyEvent::remove(int i)
+{
+    map.erase(i);
+}
+
+PropertyEvent::PropertyEvent(PropertyBase* parent) : 
+    Parent_Property(parent)
+{}

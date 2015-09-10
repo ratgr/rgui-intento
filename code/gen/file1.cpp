@@ -13,3 +13,29 @@ namespace gen{
 
 }
 
+
+
+
+struct base 
+{
+    std::string name;
+    
+    base(name): name(name)
+    {}
+    
+    base(base&) = delete; 
+    
+}
+
+struct second : base
+{
+    second(std::sting n): base("asd")
+    {
+    
+    }
+    
+    second(second& other): base("asd")
+    {
+    
+    }
+}

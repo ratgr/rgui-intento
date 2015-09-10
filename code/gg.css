@@ -1,0 +1,11 @@
+RGUI::Button[pressed]{
+
+    template : <div class=this.cssClass>this.content</div>;
+    
+}
+
+
+RGUI::MainWindow{
+    title: "";
+    
+}

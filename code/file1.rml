@@ -1,1 +1,16 @@
-<Window></Window>
+<MainWindow 
+xmlns="RGUI"
+xmlns:x="RGUI::CompilerOptions::Tools" 
+x:targetNs = "gen"
+x:extends="RGUI::MainWindow">
+    <lib src="<RGUI/Elements>"/>
+    <style src="gg.css"/>
+    
+    <Button x:name="button0" click=ChooseFile></Button>
+</MainWindow>
+
+namespace gen{
+    class MainWindow{
+        Button
+    }
+}

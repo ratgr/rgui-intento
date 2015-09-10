@@ -1,0 +1,18 @@
+template<class T> 
+    T* PropertyBase::getValue()
+{ 
+    if(T* stm = dynamic_cast<T*>(this)) return *stm;
+    return nullptr;
+};
+
+PropertyBase::PropertyBase(RGUI::UIBase* parent, std::string name): 
+    Property_name(name), 
+    Property_parent(parent)
+{
+    parent->properties.add(name, this);
+}
+
+
+template<class T>
+    Property<T>::Property(RGUI::UIBase* parent, std::string name) : PropertyBase(parent, name)
+{}
